@@ -1,5 +1,6 @@
 from stats import count_words, count_characters, sort_dictionary
 import sys
+import textwrap
 
 def get_book_text(fpath):
 
@@ -20,12 +21,12 @@ def main():
     character_dictionary = count_characters(book_text)
     sorted_dictionary = sort_dictionary(character_dictionary)
     
-    print(f"""
-============ BOOKBOT ============
-Analyzing book found at {path_to_book}...
------------ Word Count ----------
-Found {num_words} total words
---------- Character Count -------""")
+    print(textwrap.dedent(f"""
+    ============ BOOKBOT ============
+    Analyzing book found at {path_to_book}...
+    ----------- Word Count ----------
+    Found {num_words} total words
+    --------- Character Count -------"""))
 
     for item in sorted_dictionary:
         if item["name"].isalpha():
